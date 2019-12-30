@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeenotes.ssm.dao.admin.VideoChildrenDao">
+
+	<select id="get" resultType="VideoChildren">
+		SELECT * FROM j_video_child a
+		WHERE a.video_child_id = #{video_child_id}
+	</select>
+
+	<!-- 查询父级视频所有子级 --> 
+	<select id="selectVideoChildrenListByParentId" resultType="VideoChildren">
+		select * from j_video_child a
+		WHERE 
+			a.video_parent_id = #{video_parent_id}
+		ORDER BY 
+			a.sort ASC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO j_video_child(
+			video_child_id,
+			video_parent_id,
+			video_child_name,
+			play_url,
+			play_number,
+			remark,
+			sort,
+			create_date,
+			update_date,
+			create_user,
+			update_user,
+			enable
+		) VALUES (
+			#{video_child_id},
+			#{video_parent_id},
+			#{video_child_name},
+			#{play_url},
+			#{play_number},
+			#{remark},
+			#{sort},
+			#{create_date},
+			#{update_date},
+			#{create_user},
+			#{update_user},
+			#{enable}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE j_video_child SET 	
+			video_child_name = #{video_child_name},
+			play_url = #{play_url},
+			play_number = #{play_number},
+			remark = #{remark},
+			sort = #{sort},
+			create_date = #{create_date},
+			update_date = #{update_date},
+			create_user = #{create_user},
+			update_user = #{update_user},
+			enable = #{enable}
+		WHERE video_child_id = #{video_child_id}
+	</update>
+	
+	<update id="delete">
+		DELETE j_video_child 
+		WHERE video_child_id = #{video_child_id}
+	</update>
+
+	<!-- 查询 -->
+	<!-- <select id="findList" resultType="VideoChildren">
+		select * from j_video_child  a
+		<where>
+			<if test="custName != null and custName != ''">
+				a.cust_name like "%"#{custName}"%"
+			</if>
+			<if test="custSource != null and custSource != ''">
+				and a.cust_source = #{custSource}
+			</if>
+			<if test="custIndustry != null and custIndustry != ''">
+				and a.cust_industry = #{custIndustry}
+			</if>
+			<if test="custLevel != null and custLevel != ''">
+				and a.cust_level = #{custLevel}
+			</if>
+		</where>
+				ORDER BY a.sort DESC
+	</select> -->
+
+</mapper>

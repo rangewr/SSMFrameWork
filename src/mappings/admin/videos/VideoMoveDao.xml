@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeenotes.ssm.dao.admin.VideoMoveDao">
+
+	<sql id="videoMoveColumns">
+		a.move_id AS "move_id",
+		a.move_name AS "move_name",
+		a.photo AS "photo",
+		a.play_url AS "play_url",
+		a.type_id AS "type_id",
+		a.area_id AS "area_id",
+		a.style_id AS "style_id",
+		a.time_id AS "time_id",
+		a.introduce AS "introduce",
+		a.sort AS "sort",
+		a.create_date AS "create_date",
+		a.update_date AS "update_date",
+		a.create_user AS "create_user",
+		a.update_user AS "update_user",
+		a.enable AS "enable",
+		c.name AS "type_name",
+		d.name AS "area_name",
+		e.name AS "style_name",
+		f.name AS "time_name"
+	</sql>
+
+	<sql id="videoMoveJoins">
+		<!-- JOIN j_video_child b ON b.video_parent_id = a.video_parent_id -->
+		JOIN j_video_type c ON c.type_id = a.type_id
+		JOIN j_video_area d ON d.area_id = a.area_id
+		JOIN j_video_style e ON e.style_id = a.style_id
+		JOIN j_video_time f ON f.time_id = a.time_id
+	</sql>
+	
+	<select id="get" resultType="VideoMove">
+		SELECT 
+			<include refid="videoMoveColumns"/>
+		FROM j_video_move a
+		<include refid="videoMoveJoins"/>
+		WHERE a.move_id = #{move_id}
+	</select>
+	
+	<select id="findList" parameterType="VideoMove" resultType="VideoMove">
+		select 
+			<include refid="videoMoveColumns"/>
+ 		from j_video_move a
+ 		<include refid="videoMoveJoins"/>
+		<where>
+			<if test="type_id != null and type_id != ''">
+				a.type_id = #{type_id}
+			</if>
+			<if test="time_id != null and time_id != ''">
+				and a.time_id = #{time_id}
+			</if>
+			<if test="style_id != null and style_id != ''">
+				and a.style_id = #{style_id}
+			</if>
+			<if test="move_name != null and move_name != ''">
+				and a.move_name like "%"#{move_name}"%"
+			</if>
+		</where>
+		ORDER BY
+			a.sort DESC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO j_video_move(
+			move_id,
+			move_name,
+			photo,
+			play_url,
+			type_id,
+			area_id,
+			style_id,
+			time_id,
+			introduce,
+			sort,
+			create_date,
+			update_date,
+			create_user,
+			update_user,
+			enable
+		) VALUES (
+			#{move_id},
+			#{move_name},
+			#{photo},
+			#{play_url},
+			#{type_id},
+			#{area_id},
+			#{style_id},
+			#{time_id},
+			#{introduce},
+			#{sort},
+			#{create_date},
+			#{update_date},
+			#{create_user},
+			#{update_user},
+			#{enable}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE j_video_move SET 	
+			move_name = #{move_name},
+			photo = #{photo},
+			play_url = #{play_url},
+			type_id = #{type_id},
+			area_id = #{area_id},
+			style_id = #{style_id},
+			time_id = #{time_id},
+			introduce = #{introduce},
+			sort = #{sort},
+			create_date = #{create_date},
+			update_date = #{update_date},
+			create_user = #{create_user},
+			update_user = #{update_user},
+			enable = #{enable}
+		WHERE move_id = #{move_id}
+	</update>
+	
+	<update id="delete">
+		DELETE from j_video_move 
+		WHERE move_id = #{move_id}
+	</update>
+	
+
+	<!-- 查询 -->
+	<!-- <select id="findList" parameterType="QueryVo" resultType="VideoParent">
+		select * from j_video_parent 
+		<where>
+			<if test="type_id != null and type_id != ''">
+				type_id = #{type_id}
+			</if>
+			<if test="time_id != null and time_id != ''">
+				and time_id = #{time_id}
+			</if>
+			<if test="style_id != null and style_id != ''">
+				and style_id = #{style_id}
+			</if>
+			<if test="video_parent_name != null and video_parent_name != ''">
+				and video_parent_name like "%"#{video_parent_name}"%"
+			</if>
+		</where>
+		limit #{startRow},#{size}
+	</select> -->
+
+</mapper>

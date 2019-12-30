@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib><!-- 标签库 -->
+	<tlib-version>2.0</tlib-version><!-- 自己的版本 -->
+	<jsp-version>1.2</jsp-version><!-- jsp版本 -->
+	<short-name>common</short-name><!-- 别名 -->
+	<uri>http://itcast.cn/common/</uri><!-- 真实名称 -->
+	<display-name>Common Tag</display-name>
+	<description>Common Tag library</description>
+
+	<tag><!-- 标签 -->
+		<name>page</name> <!-- 标签名称-相当于c:if 中的if  -->
+		<tag-class>com.jeenotes.common.utils.NavigationTag</tag-class><!-- java类支持 -->
+		<body-content>JSP</body-content>
+		<description>create navigation for paging</description>
+		<!-- 如下这些属性，最终都是映射到上方的java类中，类中存在跟标签属性名同名的属性 -->
+		<attribute><!-- 标签的属性 -->
+			<name>bean</name><!-- 属性名 -->
+			<rtexprvalue>true</rtexprvalue><!-- 可以被修改吗?可以改 -->
+		</attribute>
+		<attribute>
+			<name>number</name>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>url</name>
+			<required>true</required><!-- 必须的吗？必须的，通常必须的原因在于java类中没有默认值 -->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

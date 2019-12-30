@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeenotes.ssm.dao.admin.VideoParentDao">
+
+	<sql id="videoParentColumns">
+		a.video_parent_id AS "video_parent_id",
+		a.video_parent_name AS "video_parent_name",
+		a.photo AS "photo",
+		a.type_id AS "type_id",
+		a.area_id AS "area_id",
+		a.style_id AS "style_id",
+		a.time_id AS "time_id",
+		a.upload_time AS "upload_time",
+		a.introduce AS "introduce",
+		a.sort AS "sort",
+		a.create_date AS "create_date",
+		a.update_date AS "update_date",
+		a.create_user AS "create_user",
+		a.update_user AS "update_user",
+		a.enable AS "enable",
+		c.name AS "type_name",
+		d.name AS "area_name",
+		e.name AS "style_name",
+		f.name AS "time_name",
+		(SELECT COUNT(*) FROM j_video_child WHERE video_parent_id = a.`video_parent_id`) AS "child_count"
+	</sql>
+
+	<sql id="videoParentJoins">
+		<!-- JOIN j_video_child b ON b.video_parent_id = a.video_parent_id -->
+		JOIN j_video_type c ON c.type_id = a.type_id
+		JOIN j_video_area d ON d.area_id = a.area_id
+		JOIN j_video_style e ON e.style_id = a.style_id
+		JOIN j_video_time f ON f.time_id = a.time_id
+	</sql>
+	
+	<select id="get" resultType="VideoParent">
+		SELECT 
+			<include refid="videoParentColumns"/>
+		FROM j_video_parent a
+		<include refid="videoParentJoins"/>
+		WHERE a.video_parent_id = #{video_parent_id}
+	</select>
+	
+	<select id="findList" parameterType="VideoParent" resultType="VideoParent">
+		select 
+			<include refid="videoParentColumns"/>
+ 		from j_video_parent a
+ 		<include refid="videoParentJoins"/>
+		<where>
+			<if test="type_id != null and type_id != ''">
+				a.type_id = #{type_id}
+			</if>
+			<if test="time_id != null and time_id != ''">
+				and a.time_id = #{time_id}
+			</if>
+			<if test="style_id != null and style_id != ''">
+				and a.style_id = #{style_id}
+			</if>
+			<if test="area_id != null and area_id != ''">
+				and a.area_id = #{area_id}
+			</if>
+			<if test="upload_time != null and upload_time != ''">
+				and a.upload_time = #{upload_time}
+			</if>
+			<if test="video_parent_name != null and video_parent_name != ''">
+				and a.video_parent_name like "%"#{video_parent_name}"%"
+			</if>
+		</where>
+		ORDER BY
+			a.sort ASC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO j_video_parent(
+			video_parent_id,
+			video_parent_name,
+			photo,
+			type_id,
+			area_id,
+			style_id,
+			time_id,
+			upload_time,
+			introduce,
+			sort,
+			create_date,
+			update_date,
+			create_user,
+			update_user,
+			enable
+		) VALUES (
+			#{video_parent_id},
+			#{video_parent_name},
+			#{photo},
+			#{type_id},
+			#{area_id},
+			#{style_id},
+			#{time_id},
+			#{upload_time},
+			#{introduce},
+			#{sort},
+			#{create_date},
+			#{update_date},
+			#{create_user},
+			#{update_user},
+			#{enable}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE j_video_parent SET 	
+			video_parent_name = #{video_parent_name},
+			photo = #{photo},
+			type_id = #{type_id},
+			area_id = #{area_id},
+			style_id = #{style_id},
+			time_id = #{time_id},
+			upload_time = #{upload_time},
+			introduce = #{introduce},
+			sort = #{sort},
+			create_date = #{create_date},
+			update_date = #{update_date},
+			create_user = #{create_user},
+			update_user = #{update_user},
+			enable = #{enable}
+		WHERE video_parent_id = #{video_parent_id}
+	</update>
+	
+	<update id="delete">
+		DELETE j_video_parent 
+		WHERE video_parent_id = #{video_parent_id}
+	</update>
+	
+
+	<!-- 查询 -->
+	<!-- <select id="findList" parameterType="QueryVo" resultType="VideoParent">
+		select * from j_video_parent 
+		<where>
+			<if test="type_id != null and type_id != ''">
+				type_id = #{type_id}
+			</if>
+			<if test="time_id != null and time_id != ''">
+				and time_id = #{time_id}
+			</if>
+			<if test="style_id != null and style_id != ''">
+				and style_id = #{style_id}
+			</if>
+			<if test="video_parent_name != null and video_parent_name != ''">
+				and video_parent_name like "%"#{video_parent_name}"%"
+			</if>
+		</where>
+		limit #{startRow},#{size}
+	</select> -->
+
+</mapper>

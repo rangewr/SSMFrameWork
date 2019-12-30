@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeenotes.ssm.dao.admin.VideoTimeDao">
+
+	<!-- 查询 -->
+	<select id="findAllList" resultType="VideoTime">
+		select * from j_video_time a 
+		ORDER BY
+			a.sort ASC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO j_video_time(
+			time_id,
+			name,
+			sort,
+			create_date,
+			update_date,
+			enable
+		) VALUES (
+			#{time_id},
+			#{name},
+			#{sort},
+			#{create_date},
+			#{update_date},
+			#{enable}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE j_video_time SET 	
+			name = #{name},
+			sort = #{sort},
+			update_date = #{update_date}
+		WHERE time_id = #{time_id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM j_video_type 
+		WHERE type_id = #{type_id}
+	</update>
+
+</mapper>

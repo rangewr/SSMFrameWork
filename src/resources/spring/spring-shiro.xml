@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd"
+       default-lazy-init="true">
+       
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+    	<property name="securityManager" ref="securityManager"/>
+    	<!-- 登录 -->
+    	<property name="loginUrl" value="/login"/>
+    	<!-- 成功通过验证跳转的地址 -->
+    	<property name="successUrl" value="/admin/imdex"/>
+    	<!-- 未授权时要跳转的连接 -->
+    	<property name="unauthorizedUrl" value="/"/> 
+    	
+        <property name="filterChainDefinitions">
+            <value>
+            	/images/**=anon
+            	/js/**=anon
+            	/style/**=anon
+            	
+            	/login/* = authc
+                /admin/*/* = authc
+            	<!-- /**=anon -->
+            </value>
+        </property>
+	</bean>
+
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="authcRealm"/>
+	    <property name="cacheManager" ref="shiroEhcacheManager"/>
+        <property name="rememberMeManager" ref="rememberMeManager"/>
+	</bean>
+
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+	<!-- 自定义Realm -->
+	<bean id="authcRealm" class="com.jeenotes.ssm.shiro.realm.AuthcRealm">
+		<!-- <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="MD5"/>
+                <property name="hashIterations" value="5"/>
+            </bean>
+        </property> -->
+	</bean>
+	
+	<!-- 用户授权信息Cache, 采用EhCache -->
+    <bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:resources/ehcache/ehcache-shiro.xml"/>
+    </bean>
+    
+    <!-- rememberMe管理器 -->
+    <bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <property name="cookie" ref="rememberMeCookie"/>
+    </bean>
+    <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="rememberMeClub"/>
+        <property name="httpOnly" value="true"/>
+        <property name="maxAge" value="25920000"/>
+    </bean>
+	
+</beans>

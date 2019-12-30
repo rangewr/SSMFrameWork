@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false" name="shiroCache">
+	<diskStore path="java.io.tmpdir/jeenotes-ssm/ehcache-shiro" />
+	<defaultCache 
+		maxEntriesLocalHeap="1000" 
+		eternal="false" 
+		timeToIdleSeconds="120" 
+		timeToLiveSeconds="120" 
+		overflowToDisk="false" 
+	/>
+	
+	<!-- 
+		 maxElementsInMemory 为缓存对象的最大数目, 
+		 eternal 设置是否永远不过期, 
+		 timeToIdleSeconds 对象处于空闲状态的最多秒数, 
+		 timeToLiveSeconds 对象处于缓存状态的最多秒数,
+		 overflowToDisk    是否增加可以存储的Element个数
+ 	--> 
+ 
+</ehcache>

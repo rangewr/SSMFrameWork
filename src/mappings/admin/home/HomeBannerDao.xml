@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeenotes.ssm.dao.admin.HomeBannerDao">
+
+	<select id="get" resultType="HomeBanner">
+		SELECT * FROM j_home_banner a
+		WHERE a.banner_id = #{banner_id}
+	</select>
+
+	<!-- 查询手机端 --> 
+	<select id="findMobileHomeBannerList" resultType="HomeBanner">
+		select * from j_home_banner a
+		WHERE 
+			a.enable = '0'
+		ORDER BY
+			a.sort DESC
+	</select>
+	
+	<!-- 查询所有 --> 
+	<select id="findAllList" resultType="HomeBanner">
+		select * from j_home_banner a
+		ORDER BY
+			a.sort DESC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO j_home_banner(
+			banner_id,
+			image_url,
+			banner_type,
+			banner_title,
+			banner_title_sub,
+			target_url,
+			sort,
+			create_date,
+			update_date,
+			enable
+		) VALUES (
+			#{banner_id},
+			#{image_url},
+			#{banner_type},
+			#{banner_title},
+			#{banner_title_sub},
+			#{target_url},
+			#{sort},
+			#{create_date},
+			#{update_date},
+			#{enable}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE j_home_banner SET 
+			image_url = #{image_url},
+			banner_type = #{banner_type},
+			banner_title = #{banner_title},
+			banner_title_sub = #{banner_title_sub},
+			target_url = #{target_url},
+			sort = #{sort},
+			update_date = #{update_date},
+			enable = #{enable}
+		WHERE banner_id = #{banner_id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM j_home_banner 
+		WHERE banner_id = #{banner_id}
+	</update>
+
+</mapper>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeenotes.ssm.dao.admin.VideoAreaDao">
+
+	<select id="get" resultType="VideoArea">
+		SELECT * FROM j_video_area a
+		WHERE a.area_id = #{area_id}
+	</select>
+
+	<!-- 查询所有 --> 
+	<select id="findAllList" resultType="VideoArea">
+		select * from j_video_area a
+		<where>
+			<if test="enable != null and enable != ''">
+				a.enable = #{enable}
+			</if>
+		</where>
+		ORDER BY
+			a.sort ASC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO j_video_area(
+			area_id,
+			name,
+			sort,
+			create_date,
+			update_date,
+			enable
+		) VALUES (
+			#{area_id},
+			#{name},
+			#{sort},
+			#{create_date},
+			#{update_date},
+			#{enable}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE j_video_area SET 	
+			name = #{name},
+			sort = #{sort},
+			update_date = #{update_date},
+			enable = #{enable}
+		WHERE area_id = #{area_id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM j_video_area 
+		WHERE area_id = #{area_id}
+	</update>
+
+</mapper>

@@ -1,0 +1,371 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Play<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "Play",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ConfigTools<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.alibaba.druid.filter.config.ConfigTools",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-DruidStat<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.alibaba.druid.support.console.DruidStat",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-HttpClientUtils<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.alibaba.druid.util.HttpClientUtils",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-DateUtils<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.jeenotes.common.utils.DateUtils",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Encrypt<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.jeenotes.common.utils.Encrypt",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-EscapeUnescapeUtil<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.jeenotes.common.utils.EscapeUnescapeUtil",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IdGen<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.jeenotes.common.utils.IdGen",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-DocsConnectionPropsHelper<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.mysql.jdbc.DocsConnectionPropsHelper",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ErrorMappingsDocGenerator<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.mysql.jdbc.util.ErrorMappingsDocGenerator",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PropertiesDocGenerator<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.mysql.jdbc.util.PropertiesDocGenerator",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TimezoneDump<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.mysql.jdbc.util.TimezoneDump",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-VersionFSHierarchyMaker<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "com.mysql.jdbc.util.VersionFSHierarchyMaker",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Version<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "junit.runner.Version",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Version<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "junit.runner.Version",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestRunner<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "junit.textui.TestRunner",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestRunner<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "junit.textui.TestRunner",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ClassLoaderAwareCache<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "net.sf.ehcache.constructs.classloader.ClassLoaderAwareCache",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.chainsaw.Main",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.chainsaw.Main",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PropertyPrinter<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.config.PropertyPrinter",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PropertyPrinter<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.config.PropertyPrinter",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LF5Appender<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.lf5.LF5Appender",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LF5Appender<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.lf5.LF5Appender",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-StartLogFactor5<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.lf5.StartLogFactor5",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-StartLogFactor5<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.lf5.StartLogFactor5",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-JMSSink<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.net.JMSSink",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-JMSSink<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.net.JMSSink",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SimpleSocketServer<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.net.SimpleSocketServer",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SimpleSocketServer<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.net.SimpleSocketServer",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SocketServer<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.net.SocketServer",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SocketServer<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.net.SocketServer",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Roller<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.varia.Roller",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Roller<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.log4j.varia.Roller",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Version<jeenotes-ssm>(2)",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.Version",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Version<jeenotes-ssm>(3)",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.Version",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SPathFilter<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.extra.spath.SPathFilter",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SPathParser<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.extra.spath.SPathParser",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SPathParser<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.extra.spath.SPathParser",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ELParser<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.lang.jstl.parser.ELParser",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ELParser<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.lang.jstl.parser.ELParser",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-EvaluationTest<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.lang.jstl.test.EvaluationTest",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-EvaluationTest<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.lang.jstl.test.EvaluationTest",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ParserTest<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.lang.jstl.test.ParserTest",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ParserTest<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.lang.jstl.test.ParserTest",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-StaticFunctionTests<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.lang.jstl.test.StaticFunctionTests",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-StaticFunctionTests<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.apache.taglibs.standard.lang.jstl.test.StaticFunctionTests",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Version<jeenotes-ssm>(4)",
+            "request": "launch",
+            "mainClass": "org.aspectj.bridge.Version",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PartialOrder<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.aspectj.util.PartialOrder",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-JUnitCore<jeenotes-ssm>",
+            "request": "launch",
+            "mainClass": "org.junit.runner.JUnitCore",
+            "projectName": "jeenotes-ssm"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-JUnitCore<jeenotes-ssm>(1)",
+            "request": "launch",
+            "mainClass": "org.junit.runner.JUnitCore",
+            "projectName": "jeenotes-ssm"
+        }
+    ]
+}
